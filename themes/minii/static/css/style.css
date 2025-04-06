@@ -1,0 +1,259 @@
+/* Base Styles */
+:root {
+  --primary-color: #0000ff;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --border-color: #eee;
+  --link-color: #0000ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: white;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  margin-bottom: 20px;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.site-nav a {
+  color: var(--link-color);
+}
+
+/* Categories */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.category-item {
+  padding: 8px 16px;
+  background-color: var(--light-gray);
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text-color);
+
+  text-transform: capitalize;
+}
+
+.category-item.active {
+  background-color: blue;
+  color: white;
+}
+
+/* Posts Year Sections */
+.posts-year {
+  margin: 40px 0;
+}
+
+.posts-year h2 {
+  margin: 30px 0 20px;
+  font-size: 32px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Post Items */
+.post-item {
+  display: flex;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.post-date {
+  min-width: 90px;
+  font-size: 16px;
+  color: #666;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.post-content {
+  flex: 1;
+}
+
+.post-header-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-category {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: #a8f0a8;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.post-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-summary {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Single Post */
+.post {
+  margin: 40px 0;
+}
+
+.post-header {
+  margin-bottom: 30px;
+}
+
+.post-header h1 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 14px;
+  display: flex;
+  gap: 15px;
+}
+
+.post-content {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.post-content h2 {
+  margin: 40px 0 15px;
+  font-size: 24px;
+}
+
+.post-content h3 {
+  margin: 30px 0 15px;
+  font-size: 20px;
+}
+
+.post-content p {
+  margin-bottom: 20px;
+}
+
+.post-content ul, .post-content ol {
+  margin: 0 0 20px 20px;
+}
+
+.post-content li {
+  margin-bottom: 8px;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.post-content pre {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.post-content code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+}
+
+figure {
+  margin: 25px 0;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f5f5f5;
+}
+
+/* Footer */
+.site-footer {
+  padding: 30px 0;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: 60px;
+}

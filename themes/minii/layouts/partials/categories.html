@@ -1,0 +1,7 @@
+<div class="categories">
+    <a href="{{ "/" | relURL }}" class="category-item {{ if .IsHome }}active{{ end }}">All</a>
+    
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="category-item {{ if eq $.RelPermalink (printf "/categories/%s/" ($name | urlize)) }}active{{ end }}">{{ $name }}</a>
+    {{ end }}
+</div>

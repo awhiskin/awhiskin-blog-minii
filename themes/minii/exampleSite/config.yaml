@@ -1,7 +1,7 @@
-baseURL: https://blog.awhiskin.dev/
+baseURL: https://example.com
 languageCode: en-us
 title: Andrew's Blog
-theme: minii
+theme: Minii
 
 params:
   description: A simple blog created with Hugo
