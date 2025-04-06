@@ -1,6 +1,5 @@
 {{ define "main" }}
-    <h1>{{ if eq .RelPermalink "/" }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</h1>
-    
+    <h1>Categories</h1>
     {{ partial "categories.html" . }}
     
     {{ $pages := where site.RegularPages "Type" "posts" }}
@@ -18,16 +17,15 @@
         
         {{ range .Pages }}
         <article class="post-item">
-            <div class="post-date">{{ .Date.Format "Jan 2" }}</div>
+            <div class="post-date"><a href="{{ .Permalink }}">{{ .Date.Format "Jan 2" }}</a></div>
             <div class="post-content">
                 <div class="post-header-line">
-                    <span class="post-category">
-                        {{ if .Params.categories }}
-                            {{ with index .Params.categories 0 }}{{ . }}{{ end }}
-                        {{ else }}
-                            Uncategorized
-                        {{ end }}
-                    </span>
+
+                    {{ if .Params.categories }}
+                        <a href="/categories/{{ with .Params.categories }}{{ index . 0 | urlize }}{{ end }}">
+                            <span class="post-category">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+                        </a>
+                    {{ end }}
                     <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                 </div>
                 <div class="post-summary">

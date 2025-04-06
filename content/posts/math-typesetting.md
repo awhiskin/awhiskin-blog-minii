@@ -1,7 +1,7 @@
 ---
 title: "Math Typesetting"
 date: 2024-04-01
-categories: ["Fuckers"]
+categories: ["Mathematics"]
 tags: ["academic", "math", "katex"]
 math: true
 ---
