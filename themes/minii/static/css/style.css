@@ -124,7 +124,7 @@ a:hover {
 }
 
 .site-nav a {
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 /* Theme Toggle */
