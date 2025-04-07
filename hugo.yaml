@@ -20,15 +20,6 @@ markup:
 
 menu:
   main:
-    - name: Blog
-      url: /blog/
+    - name: Posts
+      url: /posts/
       weight: 1
-    - name: RSS
-      url: /index.xml
-      weight: 2
-    - name: Twitter
-      url: https://twitter.com/yourusername
-      weight: 3
-    - name: Email
-      url: mailto:you@example.com
-      weight: 4
