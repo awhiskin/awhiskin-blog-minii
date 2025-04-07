@@ -11,6 +11,13 @@ taxonomies:
   category: categories
   tag: tags
 
+markup:
+  highlight:
+    codeFences: true
+    noClasses: true
+    lineNos: true
+    style: github-dark
+
 menu:
   main:
     - name: Blog

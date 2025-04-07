@@ -12,17 +12,7 @@ Hugo ships with several Built-in Shortcodes for rich content, along with a Priva
 
 Below is an example of embedding a YouTube video using Hugo's built-in `youtube` shortcode:
 
-```html
-{{</* youtube w7Ft2ymGmfc */>}}
-```
-
-## Gist
-
-You can embed a GitHub Gist using the `gist` shortcode:
-
-```html
-{{</* gist spf13 7896402 */>}}
-```
+{{< youtube w7Ft2ymGmfc >}}
 
 ## Syntax Highlighting Examples
 
@@ -30,7 +20,7 @@ Here are more examples of syntax highlighting with different languages:
 
 ### Python
 
-```python
+```python {linenos=inline}
 def fibonacci(n):
     """Generate the Fibonacci sequence up to n"""
     a, b = 0, 1
@@ -45,7 +35,7 @@ for num in fibonacci(100):
 
 ### Go
 
-```go
+```go {linenos=inline}
 package main
 
 import "fmt"
