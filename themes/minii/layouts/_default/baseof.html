@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
-    <script src="{{ "js/theme.js" | relURL }}"></script>
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-    <link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
+    
+    {{ $themeToggleJS := resources.Get "js/theme.js" | minify | fingerprint }}
+    <script src="{{ $themeToggleJS.RelPermalink }}"></script>
+
+    {{ $styles := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+
+    {{ $syntaxCSS := resources.Get "css/syntax.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $syntaxCSS.RelPermalink }}">
 </head>
 <body>
     <div class="container">
