@@ -42,6 +42,30 @@
   --color-table-header-bg: #f5f5f5;
   --color-header-logo-bg: var(--color-primary);
   --color-header-logo-text: white;
+  
+  /* Category background colors - adjusted for better contrast */
+  --category-color-1: #4361ee; /* Blue */
+  --category-color-2: #e63946; /* Red */
+  --category-color-3: #f9c74f; /* Yellow */
+  --category-color-4: #2a9d8f; /* Green */
+  --category-color-5: #457b9d; /* Cyan */
+  --category-color-6: #8338ec; /* Purple */
+  --category-color-7: #f77f00; /* Orange */
+  --category-color-8: #d62828; /* Darker red */
+  
+  /* Category text colors - adjusted for better readability */
+  --category-text-1: #ffffff; /* White for dark backgrounds */
+  --category-text-2: #ffffff;
+  --category-text-3: #333333; /* Black for light backgrounds */
+  --category-text-4: #ffffff;
+  --category-text-5: #ffffff;
+  --category-text-6: #ffffff;
+  --category-text-7: #333333;
+  --category-text-8: #ffffff;
+  
+  /* Greyscale colors for inactive categories */
+  --category-inactive-bg: var(--color-medium-gray);
+  --category-inactive-text: var(--color-text);
 }
 
 /* Dark Theme Variables */
@@ -62,6 +86,20 @@ html[data-theme='dark'] {
   --color-table-header-bg: #3a3b3c;
   --color-header-logo-bg: var(--color-primary);
   --color-header-logo-text: #f5f5f5;
+  
+  /* Enhanced category colors for dark mode - more subdued for better contrast */
+  --category-color-1: #5773ff; /* Darker blue */
+  --category-color-2: #ff5a5f; /* Darker red */
+  --category-color-3: #ffd166; /* Darker yellow */
+  --category-color-4: #40c9b5; /* Darker green */
+  --category-color-5: #5d99c6; /* Darker cyan */
+  --category-color-6: #a374ff; /* Darker purple */
+  --category-color-7: #ff9f45; /* Darker orange */
+  --category-color-8: #ff6b6b; /* Darker coral */
+  
+  /* Greyscale colors for inactive categories in dark mode */
+  --category-inactive-bg: var(--color-medium-gray);
+  --category-inactive-text: var(--color-text);
 }
 
 /* Base Styles */
@@ -81,7 +119,7 @@ body {
 
 a {
   color: var(--color-primary);
-  text-decoration: none;
+  /* text-decoration: none; */
   transition: color 0.2s ease;
 }
 
@@ -159,15 +197,100 @@ a:hover {
   background-color: var(--color-medium-gray);
   border-radius: var(--border-radius-sm);
   text-align: center;
+  text-decoration: none !important;
   font-weight: 600;
   font-size: var(--font-size-sm);
   color: var(--color-text);
   text-transform: capitalize;
+  /* Remove transition property that was causing flicker */
 }
 
-.category-item.active {
-  background-color: var(--color-primary);
-  color: var(--color-header-logo-text);
+/* Category color classes */
+.color-1 {
+  background-color: var(--category-color-1);
+  color: var(--category-text-1) !important;
+}
+
+.color-2 {
+  background-color: var(--category-color-2);
+  color: var(--category-text-2) !important;
+}
+
+.color-3 {
+  background-color: var(--category-color-3);
+  color: var(--category-text-3) !important;
+}
+
+.color-4 {
+  background-color: var(--category-color-4);
+  color: var(--category-text-4) !important;
+}
+
+.color-5 {
+  background-color: var(--category-color-5);
+  color: var(--category-text-5) !important;
+}
+
+.color-6 {
+  background-color: var(--category-color-6);
+  color: var(--category-text-6) !important;
+}
+
+.color-7 {
+  background-color: var(--category-color-7);
+  color: var(--category-text-7) !important;
+}
+
+.color-8 {
+  background-color: var(--category-color-8);
+  color: var(--category-text-8) !important;
+}
+
+/* When a filter is active, make non-active categories greyscale */
+body.category-active .category-item {
+  background-color: var(--category-inactive-bg);
+  color: var(--category-inactive-text) !important;
+}
+
+/* Keep active category colored */
+body.category-active .category-item.active.color-1 {
+  background-color: var(--category-color-1);
+  color: var(--category-text-1) !important;
+}
+
+body.category-active .category-item.active.color-2 {
+  background-color: var(--category-color-2);
+  color: var(--category-text-2) !important;
+}
+
+body.category-active .category-item.active.color-3 {
+  background-color: var(--category-color-3);
+  color: var(--category-text-3) !important;
+}
+
+body.category-active .category-item.active.color-4 {
+  background-color: var(--category-color-4);
+  color: var(--category-text-4) !important;
+}
+
+body.category-active .category-item.active.color-5 {
+  background-color: var(--category-color-5);
+  color: var(--category-text-5) !important;
+}
+
+body.category-active .category-item.active.color-6 {
+  background-color: var(--category-color-6);
+  color: var(--category-text-6) !important;
+}
+
+body.category-active .category-item.active.color-7 {
+  background-color: var(--category-color-7);
+  color: var(--category-text-7) !important;
+}
+
+body.category-active .category-item.active.color-8 {
+  background-color: var(--category-color-8);
+  color: var(--category-text-8) !important;
 }
 
 /* Posts Year Sections */
@@ -213,15 +336,15 @@ a:hover {
   margin-bottom: var(--spacing-sm);
 }
 
+/* Remove transition from post-category too */
 .post-category {
   display: inline-block;
   padding: calc(var(--spacing-xs) / 1.5) var(--spacing-sm);
-  background-color: var(--color-category-bg);
-  color: var(--color-category-text) !important;
   border-radius: var(--border-radius-sm);
   font-weight: 600;
   font-size: var(--font-size-sm);
   margin-right: var(--spacing-sm);
+  /* Remove transition property */
 }
 
 .post-title {
@@ -291,16 +414,47 @@ a:hover {
   margin: var(--spacing-md) 0;
 }
 
-.post-content pre {
+/* Code Block Improvements */
+pre {
   margin: var(--spacing-md) 0;
   padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
   overflow-x: auto;
+  max-width: 100%;
   background-color: var(--color-code-bg);
 }
 
 .post-content code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+/* Ensure code inside pre doesn't cause horizontal overflow */
+pre code {
+  display: block;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make sure tables in code blocks don't break layout */
+.highlight table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Remove horizontal scrollbar when not needed */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--color-medium-gray);
+  border-radius: 4px;
+}
+pre::-webkit-scrollbar-track {
+  background: var(--color-lighter-gray);
 }
 
 figure {
@@ -350,14 +504,17 @@ table th {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .site-header {
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: var(--spacing-md);
-    align-items: flex-start;
+  }
+  
+  .site-logo {
+    flex: 0 0 auto;
   }
   
   .site-nav {
-    width: 100%;
-    justify-content: space-between;
+    flex: 1 1 auto;
+    justify-content: flex-end;
   }
   
   .post-item {
@@ -371,6 +528,44 @@ table th {
     padding-bottom: var(--spacing-xs);
     margin-bottom: var(--spacing-xs);
     padding-right: 0;
+    margin-right: 0;
+  }
+  
+  /* Improve category display on mobile */
+  .categories {
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm);
+  }
+  
+  .category-item {
+    font-size: var(--font-size-sm);
+    padding: calc(var(--spacing-xs) * 0.8) var(--spacing-xs);
+    text-decoration: none !important;
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .site-header {
+    padding-bottom: var(--spacing-sm);
+  }
+  
+  .logo-box {
+    width: 3rem;
+    height: 3rem;
+    font-size: var(--font-size-lg);
+  }
+  
+  .site-nav {
+    gap: var(--spacing-sm);
+  }
+  
+  .post-header-line {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+  
+  .post-category {
     margin-right: 0;
   }
 }

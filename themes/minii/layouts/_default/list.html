@@ -1,5 +1,4 @@
 {{ define "main" }}
-    {{/*  <h1>Categories</h1>  */}}
     {{ partial "categories.html" . }}
     
     {{ $pages := where site.RegularPages "Type" "posts" }}
@@ -11,6 +10,27 @@
         {{ end }}
     {{ end }}
     
+    {{/* Inline category color mapping */}}
+    {{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
+    {{ $categoryDict := dict }}
+    
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        {{ $categoryDict = merge $categoryDict (dict (lower $name) $name) }}
+    {{ end }}
+    
+    {{ $sortedCategoryNames := slice }}
+    {{ range $lowercaseName, $originalName := $categoryDict }}
+        {{ $sortedCategoryNames = $sortedCategoryNames | append $lowercaseName }}
+    {{ end }}
+    {{ $sortedCategoryNames = sort $sortedCategoryNames }}
+    
+    {{ $categoryColors := dict }}
+    {{ range $i, $lowercaseName := $sortedCategoryNames }}
+        {{ $colorIndex := mod $i (len $colors) }}
+        {{ $colorClass := index $colors $colorIndex }}
+        {{ $categoryColors = merge $categoryColors (dict $lowercaseName $colorClass) }}
+    {{ end }}
+    
     {{ range $pages.GroupByDate "2006" }}
     <section class="posts-year">
         <h2>{{ .Key }}</h2>
@@ -20,10 +40,12 @@
             <div class="post-date"><a href="{{ .Permalink }}">{{ .Date.Format "Jan" }} {{ .Date.Day }}{{ if eq .Date.Day 1 }}st{{ else if eq .Date.Day 2 }}nd{{ else if eq .Date.Day 3 }}rd{{ else }}th{{ end }}</a></div>
             <div class="post-content">
                 <div class="post-header-line">
-
                     {{ if .Params.categories }}
-                        <a href="/categories/{{ with .Params.categories }}{{ index . 0 | urlize }}{{ end }}">
-                            <span class="post-category">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
+                        {{ $category := index .Params.categories 0 }}
+                        {{ $normalizedCategory := lower $category }}
+                        {{ $colorClass := index $categoryColors $normalizedCategory | default "color-1" }}
+                        <a href="/categories/{{ $category | urlize }}">
+                            <span class="post-category {{ $colorClass }}">{{ $category }}</span>
                         </a>
                     {{ end }}
                     <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>

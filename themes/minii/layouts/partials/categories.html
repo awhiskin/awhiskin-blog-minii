@@ -1,7 +1,32 @@
 <div class="categories">
-    <a href="{{ "/" | relURL }}" class="category-item {{ if .IsHome }}active{{ end }}">All</a>
+    {{/* Inline category color mapping */}}
+    {{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
+    {{ $categoryDict := dict }}
     
     {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-        <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" class="category-item {{ if eq $.RelPermalink (printf "/categories/%s/" ($name | urlize)) }}active{{ end }}">{{ $name }}</a>
+        {{ $categoryDict = merge $categoryDict (dict (lower $name) $name) }}
+    {{ end }}
+    
+    {{ $sortedCategoryNames := slice }}
+    {{ range $lowercaseName, $originalName := $categoryDict }}
+        {{ $sortedCategoryNames = $sortedCategoryNames | append $lowercaseName }}
+    {{ end }}
+    {{ $sortedCategoryNames = sort $sortedCategoryNames }}
+    
+    {{ $categoryColors := dict }}
+    {{ range $i, $lowercaseName := $sortedCategoryNames }}
+        {{ $colorIndex := mod $i (len $colors) }}
+        {{ $colorClass := index $colors $colorIndex }}
+        {{ $categoryColors = merge $categoryColors (dict $lowercaseName $colorClass) }}
+    {{ end }}
+    
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        {{ $lowercaseName := lower $name }}
+        {{ $colorClass := index $categoryColors $lowercaseName | default "color-1" }}
+        <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" 
+           class="category-item {{ $colorClass }} {{ if eq $.RelPermalink (printf "/categories/%s/" ($name | urlize)) }}active{{ end }}"
+           data-category="{{ $name }}">
+            {{ $name }}
+        </a>
     {{ end }}
 </div>

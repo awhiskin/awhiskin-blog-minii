@@ -5,10 +5,35 @@
             <div class="post-meta">
                 <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
                 {{ if .Params.categories }}
-                <a href="/categories/{{ with .Params.categories }}{{ index . 0 | urlize }}{{ end }}">
-                    <span class="post-category">{{ with .Params.categories }}{{ index . 0 }}{{ end }}</span>
-                </a>
-            {{ end }}
+                    {{ $category := index .Params.categories 0 }}
+                    
+                    {{/* Inline category color mapping */}}
+                    {{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
+                    {{ $categoryDict := dict }}
+                    
+                    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                        {{ $categoryDict = merge $categoryDict (dict (lower $name) $name) }}
+                    {{ end }}
+                    
+                    {{ $sortedCategoryNames := slice }}
+                    {{ range $lowercaseName, $originalName := $categoryDict }}
+                        {{ $sortedCategoryNames = $sortedCategoryNames | append $lowercaseName }}
+                    {{ end }}
+                    {{ $sortedCategoryNames = sort $sortedCategoryNames }}
+                    
+                    {{ $categoryColors := dict }}
+                    {{ range $i, $lowercaseName := $sortedCategoryNames }}
+                        {{ $colorIndex := mod $i (len $colors) }}
+                        {{ $colorClass := index $colors $colorIndex }}
+                        {{ $categoryColors = merge $categoryColors (dict $lowercaseName $colorClass) }}
+                    {{ end }}
+                    
+                    {{ $normalizedCategory := lower $category }}
+                    {{ $colorClass := index $categoryColors $normalizedCategory | default "color-1" }}
+                    <a href="/categories/{{ $category | urlize }}">
+                        <span class="post-category {{ $colorClass }}">{{ $category }}</span>
+                    </a>
+                {{ end }}
             </div>
         </header>
         <div class="post-content">

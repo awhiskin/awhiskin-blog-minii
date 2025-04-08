@@ -1,0 +1,18 @@
+{{/* This partial creates a consistent category to color mapping */}}
+{{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
+
+{{ $sortedCategories := slice }}
+{{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+    {{/* Normalize category names to avoid case mismatches */}}
+    {{ $sortedCategories = $sortedCategories | append (lower $name) }}
+{{ end }}
+{{ $sortedCategories = sort $sortedCategories }}
+
+{{ $categoryColors := dict }}
+{{ range $i, $categoryName := $sortedCategories }}
+    {{ $colorIndex := mod $i (len $colors) }}
+    {{ $colorClass := index $colors $colorIndex }}
+    {{ $categoryColors = merge $categoryColors (dict $categoryName $colorClass) }}
+{{ end }}
+
+{{ return $categoryColors }}

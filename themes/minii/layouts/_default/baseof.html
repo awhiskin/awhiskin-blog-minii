@@ -14,7 +14,7 @@
     {{ $syntaxCSS := resources.Get "css/syntax.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $syntaxCSS.RelPermalink }}">
 </head>
-<body>
+<body class="{{ if and (not .IsHome) (or (eq .Type "categories") (eq .Section "categories")) }}category-active{{ end }}">
     <div class="container">
         {{ partial "header.html" . }}
         <main>
