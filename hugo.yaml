@@ -2,6 +2,7 @@ baseURL: https://blog.awhiskin.dev/
 languageCode: en-us
 title: Andrew's Blog
 theme: minii
+summaryLength: 2
 
 params:
   description: A simple blog created with Hugo
@@ -13,10 +14,8 @@ taxonomies:
 
 markup:
   highlight:
-    codeFences: true
-    noClasses: true
     lineNos: true
-    style: github-dark
+    style: catppuccin-macchiato
 
 menu:
   main:
@@ -27,3 +26,4 @@ menu:
 caches:
   images:
     dir: :cacheDir/images
+    

@@ -1,8 +1,7 @@
 ---
 title: "Rich Content Examples"
 date: 2024-03-20
-categories: ["Posts"]
-tags: ["shortcodes", "rich", "content"]
+categories: ["Markdown"]
 summary: Hugo ships with several Built-in Shortcodes for rich content, along with a Privacy Config and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.
 ---
 

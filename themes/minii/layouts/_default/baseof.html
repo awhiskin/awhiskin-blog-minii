@@ -10,9 +10,6 @@
 
     {{ $styles := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-
-    {{ $syntaxCSS := resources.Get "css/syntax.css" | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $syntaxCSS.RelPermalink }}">
 </head>
 <body class="{{ if and (not .IsHome) (or (eq .Type "categories") (eq .Section "categories")) }}category-active{{ end }}">
     <div class="container">

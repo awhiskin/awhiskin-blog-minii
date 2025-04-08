@@ -1,10 +1,7 @@
 {{ define "main" }}
     <article class="post">
         <header class="post-header">
-            <h1>{{ .Title }}</h1>
-            <div class="post-meta">
-                <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
-                {{ if .Params.categories }}
+            {{ if .Params.categories }}
                     {{ $category := index .Params.categories 0 }}
                     
                     {{/* Inline category color mapping */}}
@@ -34,10 +31,30 @@
                         <span class="post-category {{ $colorClass }}">{{ $category }}</span>
                     </a>
                 {{ end }}
+            <h1>{{ .Title }}</h1>
+            <div class="post-meta">
+                <span class="post-date">{{ .Date.Format "January" }} {{ .Date.Day }}{{ if eq .Date.Day 1 }}st{{ else if eq .Date.Day 2 }}nd{{ else if eq .Date.Day 3 }}rd{{ else }}th{{ end }}, {{ .Date.Year }}</span>
             </div>
         </header>
         <div class="post-content">
             {{ .Content }}
+        </div>
+        <div class="post-footer">
+            <div class="post-navigation">
+                <div class="navigation-item post-nav-prev">
+                    {{ if .PrevInSection }}
+                        <span>Previous:</span>
+                        <a href="{{ .PrevInSection.RelPermalink }}">{{ .PrevInSection.Title }}</a>
+                    {{ end }}
+                </div>
+                
+                <div class="navigation-item post-nav-next">
+                    {{ if .NextInSection }}
+                        <span>Next up:</span>
+                        <a href="{{ .NextInSection.RelPermalink }}">{{ .NextInSection.Title }}</a>
+                    {{ end }}
+                </div>
+            </div>
         </div>
     </article>
 {{ end }}

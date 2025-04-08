@@ -23,7 +23,7 @@
   --border-radius-lg: 0.75rem;
   
   /* Layout */
-  --container-width: 41.625rem; /* 666px */
+  --container-width: 900px;
   
   /* Colors - Light Theme (default) */
   --color-primary: #0000ff;
@@ -38,7 +38,7 @@
   --color-category-bg: #a8f0a8;
   --color-category-text: #222222;
   --color-code-bg: #f8f8f8;
-  --color-blockquote-border: var(--color-primary);
+  --color-blockquote-border: var(--color-medium-gray);
   --color-table-header-bg: #f5f5f5;
   --color-header-logo-bg: var(--color-primary);
   --color-header-logo-text: white;
@@ -70,9 +70,9 @@
 
 /* Dark Theme Variables */
 html[data-theme='dark'] {
-  --color-primary: #4d7aff;
-  --color-background: #242526;
-  --color-text: #e4e6eb;
+  --color-primary: #6598ff;
+  --color-background: #171A26;
+  --color-text: #F2F3F7;
   --color-text-secondary: #b0b3b8;
   --color-text-tertiary: #969899;
   --color-border: #3e4042;
@@ -82,9 +82,9 @@ html[data-theme='dark'] {
   --color-category-bg: #3e5e3e;
   --color-category-text: #e4e6eb;
   --color-code-bg: #2d2d2e;
-  --color-blockquote-border: var(--color-primary);
+  --color-blockquote-border: var(--color-medium-gray);
   --color-table-header-bg: #3a3b3c;
-  --color-header-logo-bg: var(--color-primary);
+  --color-header-logo-bg: var(--category-color-1);
   --color-header-logo-text: #f5f5f5;
   
   /* Enhanced category colors for dark mode - more subdued for better contrast */
@@ -119,7 +119,7 @@ body {
 
 a {
   color: var(--color-primary);
-  /* text-decoration: none; */
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
@@ -139,8 +139,9 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-md);
   padding: var(--spacing-md) 0;
+
+  border-bottom: 1px solid var(--color-border);
 }
 
 .logo-box {
@@ -186,10 +187,10 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  padding: var(--spacing-md);
+  /* padding: var(--spacing-md); */
   border-radius: var(--border-radius-md);
-  background-color: var(--color-light-gray);
-  margin-bottom: var(--spacing-lg);
+  /* background-color: var(--color-light-gray); */
+  margin: 2em 0;
 }
 
 .category-item {
@@ -381,6 +382,11 @@ body.category-active .category-item.active.color-8 {
   font-size: var(--font-size-xxl);
 }
 
+.post-header .post-category {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
 .post-meta {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
@@ -423,9 +429,8 @@ body.category-active .category-item.active.color-8 {
 
 /* Code Block Improvements */
 pre {
-  margin: var(--spacing-md) 0;
+  margin: 0.5em 0;
   padding: var(--spacing-sm);
-  border-radius: var(--border-radius-sm);
   overflow-x: auto;
   max-width: 100%;
   background-color: var(--color-code-bg);
@@ -433,7 +438,7 @@ pre {
 
 .post-content code {
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 /* Ensure code inside pre doesn't cause horizontal overflow */
@@ -443,6 +448,10 @@ pre code {
   word-wrap: normal;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.highlight {
+  margin-bottom: 2em;
 }
 
 /* Make sure tables in code blocks don't break layout */
@@ -476,7 +485,7 @@ figcaption {
 }
 
 blockquote {
-  border-left: 0.25rem solid var(--color-blockquote-border);
+  border-left: 1px solid var(--color-blockquote-border);
   padding-left: var(--spacing-md);
   margin: var(--spacing-md) 0;
   font-style: italic;
@@ -537,4 +546,24 @@ table th {
   .posts-year h2 {
     margin-left: 0 !important;
   }
+}
+
+.post-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.navigation-item {
+  margin-bottom: 1rem;
+}
+
+.post-nav-prev span, .post-nav-next span {
+  display: block;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 0.25rem;
 }
