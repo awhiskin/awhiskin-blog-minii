@@ -3,7 +3,7 @@
   /* Typography */
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-size-base: 1rem;
-  --font-size-sm: 0.875rem;
+  --font-size-sm: 0.75rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
   --font-size-xxl: 2rem;
@@ -301,14 +301,15 @@ body.category-active .category-item.active.color-8 {
 .posts-year h2 {
   margin: var(--spacing-lg) 0 var(--spacing-md);
   font-weight: 600;
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
+  font-size: 1.5em;
+  /* color: var(--color-text-secondary); */  
+  /* margin-left: 1em !important; */
 }
 
 /* Post Items */
 .post-item {
   display: flex;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
   padding-bottom: var(--spacing-sm);
 }
 
@@ -324,6 +325,12 @@ body.category-active .category-item.active.color-8 {
 
 .post-date a {
   color: var(--color-text) !important;
+  text-decoration: none;
+}
+
+
+.post-date a:hover {
+  text-decoration: underline;
 }
 
 .post-content {
@@ -354,7 +361,7 @@ body.category-active .category-item.active.color-8 {
 }
 
 .post-summary {
-  font-size: var(--font-size-sm);
+  /* font-size: var(--font-size-sm); */
   color: var(--color-text-secondary);
   line-height: 1.5;
 }
@@ -501,48 +508,6 @@ table th {
   margin-top: var(--spacing-xxl);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .site-header {
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-  }
-  
-  .site-logo {
-    flex: 0 0 auto;
-  }
-  
-  .site-nav {
-    flex: 1 1 auto;
-    justify-content: flex-end;
-  }
-  
-  .post-item {
-    flex-direction: column;
-  }
-  
-  .post-date {
-    text-align: left;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: var(--spacing-xs);
-    margin-bottom: var(--spacing-xs);
-    padding-right: 0;
-    margin-right: 0;
-  }
-  
-  /* Improve category display on mobile */
-  .categories {
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm);
-  }
-  
-  .category-item {
-    font-size: var(--font-size-sm);
-    padding: calc(var(--spacing-xs) * 0.8) var(--spacing-xs);
-    text-decoration: none !important;
-  }
-}
 
 /* For even smaller screens */
 @media (max-width: 480px) {
@@ -567,5 +532,9 @@ table th {
   
   .post-category {
     margin-right: 0;
+  }
+
+  .posts-year h2 {
+    margin-left: 0 !important;
   }
 }
