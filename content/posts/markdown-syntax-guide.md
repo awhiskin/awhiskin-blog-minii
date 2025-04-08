@@ -102,4 +102,4 @@ Here's our logo (hover to see the title text):
 
 Hugo has a `figure` shortcode built in, so you can easily add captions and more to your images.
 
-{{< figure src="/images/sample-image.jpg" alt="Sample image" caption="This is a caption for the sample image." >}}
+{{< figure src="/images/garden.jpg" alt="Sample image" caption="This is a caption for the sample image." >}}

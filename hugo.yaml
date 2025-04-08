@@ -4,6 +4,13 @@ title: Andrew's Blog
 theme: minii
 summaryLength: 2
 
+module:
+  mounts:
+    - source: static
+      target: static
+    - source: images
+      target: static/images
+
 params:
   description: A simple blog created with Hugo
   author: Andrew
@@ -19,9 +26,15 @@ markup:
 
 menu:
   main:
+    - name: Home
+      url: /
+      weight: 0
     - name: Posts
       url: /posts/
       weight: 1
+    - name: About
+      url: /about/
+      weight: 2
 
 caches:
   images:
