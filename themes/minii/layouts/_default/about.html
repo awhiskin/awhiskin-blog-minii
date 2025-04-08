@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="about-page">
+    <header class="about-header">
+        
+    </header>
+    
+    <div class="about-content">
+        <div class="author-profile">
+            <div class="author-image">
+                <!-- Placeholder image - replace with your actual image -->
+                <img src="/images/blyat.png" alt="{{ .Site.Params.author }}" />
+            </div>
+            
+            <div class="author-info">
+                <h1>{{ .Title }}</h1>
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</article>
+{{ end }}

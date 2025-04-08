@@ -105,8 +105,6 @@ html[data-theme='dark'] {
 /* Base Styles */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -584,4 +582,41 @@ table th {
   font-weight: 600;
   color: var(--secondary-color);
   margin-bottom: 0.25rem;
+}
+
+/* About page styles */
+.about-page {
+  margin: var(--spacing-xl) 0;
+}
+
+.about-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-header h1 {
+  font-size: var(--font-size-xxl);
+  font-weight: 600;
+}
+
+.about-content {
+  line-height: 1.8;
+}
+
+.author-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.author-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-info {
+  flex: 1;
 }
