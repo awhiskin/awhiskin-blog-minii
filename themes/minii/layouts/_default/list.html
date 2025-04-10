@@ -52,9 +52,9 @@
                         <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
                     </div>
                     {{ if .Params.Summary }}
-                    <div class="post-summary">
-                        {{ .Summary | safeHTML | plainify }}
-                    </div>
+                        <div class="post-summary">
+                            {{ .Summary | safeHTML | plainify }}
+                        </div>
                     {{ end }}
                 </div>
             </article>
