@@ -1,17 +1,12 @@
 ---
-title: "Rich Content Examples"
-date: 2024-03-20
-categories: ["Markdown"]
+title: Rich Content Examples
+date: 2024-03-20T10:00:00-05:00
+draft: true
+categories: [Markdown]
 summary: Hugo ships with several Built-in Shortcodes for rich content, along with a Privacy Config and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.
 ---
 
 Hugo ships with several Built-in Shortcodes for rich content, along with a Privacy Config and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.
-
-## YouTube
-
-Below is an example of embedding a YouTube video using Hugo's built-in `youtube` shortcode:
-
-{{< youtube w7Ft2ymGmfc >}}
 
 ## Syntax Highlighting Examples
 
@@ -97,3 +92,15 @@ func main() {
 </body>
 </html>
 ```
+
+## YouTube
+
+Below is an example of embedding a YouTube video using Hugo's built-in `youtube` shortcode:
+
+{{< youtube w7Ft2ymGmfc >}}
+
+## Figure Shortcode
+
+Hugo has a `figure` shortcode built in, so you can easily add captions and more to your images.
+
+{{< figure src="/images/garden.jpg" alt="Sample image" caption="This is a caption for the sample image." >}}

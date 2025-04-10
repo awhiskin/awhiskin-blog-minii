@@ -1,13 +1,16 @@
 ---
-title: "Exploring the Hidden Gems of Kyoto"
-date: "2023-04-07T14:30:00-05:00"
-categories: ["Travel"]
-tags: ["kyoto", "culture"]
+title: Exploring the Hidden Gems of Kyoto
+date: 2023-04-07T14:30:00-05:00
+draft: true
+categories: [Travel]
+tags: [kyoto, culture]
 ---
 
 # Exploring the Hidden Gems of Kyoto
 
 While Tokyo might steal the spotlight as Japan's bustling metropolis, Kyoto offers a serene glimpse into the country's rich historical past. Having spent two weeks wandering through its ancient streets, I discovered some lesser-known treasures beyond the typical tourist itinerary.
+
+{{< figure src="/images/garden.jpg" alt="Sample image" caption="This is a caption for the sample image." >}}
 
 ## Beyond the Golden Pavilion
 

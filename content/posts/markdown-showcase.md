@@ -1,8 +1,9 @@
 ---
-title: "Markdown Formatting Showcase"
-date: "2023-04-08T10:00:00-05:00"
-categories: ["Markdown"]
-tags: ["formatting", "reference"]
+title: Markdown Formatting Showcase
+date: 2023-04-08T10:00:00-05:00
+draft: true
+categories: [Markdown]
+tags: []
 ---
 
 # Markdown Formatting Showcase

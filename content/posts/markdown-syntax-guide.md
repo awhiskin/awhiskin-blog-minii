@@ -1,7 +1,9 @@
 ---
-title: "Markdown Syntax Guide"
-date: 2024-03-15
-categories: ["Markdown"]
+title: Markdown Syntax Guide
+date: 2023-04-15T10:00:00-05:00
+draft: true
+categories: [Markdown]
+tags: []
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also showing how these elements look in HTML.

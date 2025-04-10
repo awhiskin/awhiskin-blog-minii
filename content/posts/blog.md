@@ -1,8 +1,9 @@
 ---
-date: '2025-04-06T20:54:41+10:00'
-draft: false
 title: Starting a blog in 2025
-categories: ["Blogging"]
+date: 2025-04-06T20:54:41+10:00
+draft: true
+categories: [Blogging]
+tags: []
 ---
 
 # Starting a Blog in 2025: What You Need to Know
