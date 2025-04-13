@@ -1,36 +1,37 @@
 {{ define "main" }}
     <article class="post">
         <header class="post-header">
-            {{ if .Params.categories }}
-                    {{ $category := index .Params.categories 0 }}
-                    
-                    {{/* Inline category color mapping */}}
-                    {{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
-                    {{ $categoryDict := dict }}
-                    
-                    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-                        {{ $categoryDict = merge $categoryDict (dict (lower $name) $name) }}
-                    {{ end }}
-                    
-                    {{ $sortedCategoryNames := slice }}
-                    {{ range $lowercaseName, $originalName := $categoryDict }}
-                        {{ $sortedCategoryNames = $sortedCategoryNames | append $lowercaseName }}
-                    {{ end }}
-                    {{ $sortedCategoryNames = sort $sortedCategoryNames }}
-                    
-                    {{ $categoryColors := dict }}
-                    {{ range $i, $lowercaseName := $sortedCategoryNames }}
-                        {{ $colorIndex := mod $i (len $colors) }}
-                        {{ $colorClass := index $colors $colorIndex }}
-                        {{ $categoryColors = merge $categoryColors (dict $lowercaseName $colorClass) }}
-                    {{ end }}
-                    
-                    {{ $normalizedCategory := lower $category }}
-                    {{ $colorClass := index $categoryColors $normalizedCategory | default "color-1" }}
-                    <a href="/categories/{{ $category | urlize }}">
-                        <span class="post-category {{ $colorClass }}">{{ $category }}</span>
+            <div class="categories">
+                {{/* Inline category color mapping */}}
+                {{ $colors := slice "color-1" "color-2" "color-3" "color-4" "color-5" "color-6" "color-7" "color-8" }}
+                {{ $categoryDict := dict }}
+                
+                {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                    {{ $categoryDict = merge $categoryDict (dict (lower $name) $name) }}
+                {{ end }}
+                
+                {{ $sortedCategoryNames := slice }}
+                {{ range $lowercaseName, $originalName := $categoryDict }}
+                    {{ $sortedCategoryNames = $sortedCategoryNames | append $lowercaseName }}
+                {{ end }}
+                {{ $sortedCategoryNames = sort $sortedCategoryNames }}
+                
+                {{ $categoryColors := dict }}
+                {{ range $i, $lowercaseName := $sortedCategoryNames }}
+                    {{ $colorIndex := mod $i (len $colors) }}
+                    {{ $colorClass := index $colors $colorIndex }}
+                    {{ $categoryColors = merge $categoryColors (dict $lowercaseName $colorClass) }}
+                {{ end }}
+                
+                {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+                    {{ $lowercaseName := lower $name }}
+                    {{ $colorClass := index $categoryColors $lowercaseName | default "color-1" }}
+                    <a href="{{ "/categories/" | relURL }}{{ $name | urlize }}" 
+                       class="category-item {{ $colorClass }}">
+                       {{ $name }}
                     </a>
                 {{ end }}
+            </div>
             <h1>{{ .Title }}</h1>
             <div class="post-meta">
                 <span class="post-date">{{ .Date.Format "January" }} {{ .Date.Day }}{{ if eq .Date.Day 1 }}st{{ else if eq .Date.Day 2 }}nd{{ else if eq .Date.Day 3 }}rd{{ else }}th{{ end }}, {{ .Date.Year }}</span>

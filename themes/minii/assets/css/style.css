@@ -526,11 +526,11 @@ table th {
 
 /* Footer */
 .site-footer {
-  padding: var(--spacing-lg) 0;
   text-align: center;
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
-  margin-top: var(--spacing-xxl);
+  /* margin-top: var(--spacing-xxl); */
+  margin-bottom: 2em;
 }
 
 
