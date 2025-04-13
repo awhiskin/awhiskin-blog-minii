@@ -39,8 +39,8 @@ While it's definitely different to the familiar Marty O'Donnell and Michael Salv
 
 Speaking of the environment, my god, do I love the environmental design in this mod! Something about the island environment, with its gorgeous rolling hills, caves, cliffs and beaches, really struck a chord with me. The environments in *Halo: Combat Evolved* have always felt a bit... liminal. There's actually a few YouTube videos covering this topic that go into deeper detail on this topic:
 
-- [Old Halo Games Were Creepy](https://www.youtube.com/watch?v=p7QXWj98ERI)
-- [Unremarkable and odd places in Halo: Combat Evolved](https://www.youtube.com/watch?v=VMSenHGooJk)
+- [Why Are Old Halo Games So Creepy? - Halo Retrospective](https://www.youtube.com/watch?v=f_TTXYOC8SE)
+- [Why Are Old Halo Maps So Creepy? - Halo Lore](https://www.youtube.com/watch?v=Y43pb5NAaw4)
 
 I think the environment in *Mercury Rising II* absolutely feels like a bit of a liminal space - and I love that! I think that's the point of these vast, gorgeous, artificial Forerunner landscapes; they are supposed to feel artificial and a little bit wrong. They are decidedly unnatural places. Bungie absolutely nailed this design in the original Halo trilogy, and altis94 has pulled off such a great job making an environment that feels authentic and right at place in a Halo game, but also is quite fun to play in!
 
